@@ -1,0 +1,13 @@
+[package]
+name = "nodes-parse"
+license = "MIT"
+version = "0.1.0"
+edition = "2021"
+description = "A few structs to parse the nodes.json of Freifunk Hannover."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1"
+serde_derive = "1"
+serde_json = "1"
