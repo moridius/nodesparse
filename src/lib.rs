@@ -1,5 +1,6 @@
 use serde_derive::{Deserialize, Serialize};
 use serde_json::Value;
+use std::net::Ipv6Addr;
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct NodesJSON {
@@ -92,13 +93,21 @@ pub struct Traffic0 {
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Nodeinfo {
     pub node_id: String,
-    pub network: Value, // TODO: implement
+    pub network: Network,
     pub owner: Option<Owner>,
     pub hostname: String,
     pub location: Option<Location>,
     pub software: Software,
     pub hardware: Value, // TODO: implement
     pub vpn: bool,
+}
+
+#[derive(Deserialize, Serialize, Debug, Clone)]
+pub struct Network {
+    pub mac: Value, // TODO: implement
+    pub addresses: Vec<Ipv6Addr>,
+    pub mesh: Value,  // TODO: implement
+    pub mesh_interfaces: Value  // TODO: implement
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
